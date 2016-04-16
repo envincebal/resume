@@ -171,44 +171,65 @@ projects.display();
 /* EDUCATION */
 
 var education = {
-	"schools" : {
+	"schools" : [
+	{
 		"name" : "University of Oregon",
 		"location" : "Eugene, Oregon",
 		"major" : "Political Science",
 		"dates" : "September 2003 - June 2007"
-	},
+	}
+],
 	"online" : [
 	{
+		"title" : "Front End Developer Nanodegree",
 		"name" : "Udacity", 
-		"degree" : "Front End Developer Nanodegree",
 		"dates" : "March 2016 - Present",
-		"url" : "https://www.thinkful.com/"
+		"url" : "https://www.udacity.com/course/front-end-web-developer-nanodegree--nd001"
 	},
 	{
-		"name" : "Thinkful Front End Online Bootcamp",
+		"title" : "Front End Career Path",
+		"name" : "Thinkful",
 		"dates" : "December 2015 - March 2016",
-		"url" : "https://www.udacity.com/course/front-end-web-developer-nanodegree--nd001"
+		"url" : "https://www.thinkful.com/"
 	}
 	]
+};
+
+education.display = function(){
+	for (school in education.schools){
+		
+		var formattedEducationName = HTMLschoolName.replace("%data%", education.schools[school].name);
+		var formattedEducationLocation = HTMLschoolLocation.replace("%data%", education.schools[school].location);
+		var formattedEducationMajor = HTMLschoolDegree.replace("%data%", education.schools[school].major);
+		var formattedEducationDates = HTMLschoolDates.replace("%data%", education.schools[school].dates);
+		$("#education").append(HTMLschoolStart);
+
+		$(".education-entry:last").append(formattedEducationName + formattedEducationLocation + formattedEducationMajor + formattedEducationDates);
+	}
+
+
+	
+		
+		for (online in education.online){
+			$("#education").append("<br>" + HTMLonlineClasses);
+			$("#education").append(HTMLschoolStart);
+			var formattedOnlineTitle = HTMLonlineTitle.replace("%data%", education.online[online].title);
+			var formattedOnlineName = HTMLonlineSchool.replace("%data%", education.online[online].name);
+			var formattedOnlineDates = HTMLonlineDates.replace("%data%", education.online[online].dates);
+			var formattedOnlineURL = HTMLonlineURL.replace("%data%", education.online[online].url);
+
+			$(".education-entry:last").append(formattedOnlineTitle + formattedOnlineName);
+			$(".education-entry:last").append(formattedOnlineDates);
+			$(".education-entry:last").append(formattedOnlineURL);
+		}
+	
 }
 
-$("#education").append(HTMLschoolStart);
+education.display();
 
-var formattedEducationName = HTMLschoolName.replace("%data%", education.schools.name);
-var formattedEducationLocation = HTMLschoolLocation.replace("%data%", education.schools.location);
-var formattedEducationMajor = HTMLschoolDegree.replace("%data%", education.schools.major);
-var formattedEducationDates = HTMLschoolDates.replace("%data%", education.schools.dates);
+/* MAP LOCATION */
 
-$(".education-entry:last").append(formattedEducationName + formattedEducationLocation + formattedEducationMajor + formattedEducationDates);
-
-$(".education-entry:last").append(HTMLonlineClasses);
-
-/*for (online in education){
-	var formattedOnlineName = HTMLschoolName.replace("%data%", education.schools.name);
-	var formattedEducationLocation = HTMLschoolLocation.replace("%data%", education.schools.location);
-	var formattedEducationMajor = HTMLschoolDegree.replace("%data%", education.schools.major);
-	var formattedEducationDates = HTMLschoolDates.replace("%data%", education.schools.dates);
-}*/
+$("#mapDiv").append(googleMap);
 
 /* FOOTER */
 
