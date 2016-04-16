@@ -26,7 +26,6 @@ var formattedLocation = HTMLlocation.replace("%data%", bio.contacts.location);
 var formattedBioPic = HTMLbioPic.replace("%data%", bio.picture);
 var formattedWelcome = HTMLwelcomeMsg.replace("%data%", bio.welcome);
 
-
 $("#header").prepend(formattedName + formattedRole);
 $("#topContacts").append(formattedMobile + formattedEmail + formattedTwitter + formattedGitHub + formattedLocation);
 $("#header").append(formattedBioPic);
@@ -71,15 +70,12 @@ var work = [
 
 function displayWork(){
 	for (x in work){
-		
 		var formattedEmployer = HTMLworkEmployer.replace("%data%", work[x].employer);
 		var formattedTitle = HTMLworkTitle.replace("%data%", work[x].title);
-		
 		var formattedWorkDates = HTMLworkDates.replace("%data%", work[x].dates);
-		
 		var formattedWorkLocation = HTMLworkLocation.replace("%data%", work[x].location);
-		
 		var formattedWorkDescription = HTMLworkDescription.replace("%data%", work[x].description);
+
 		$("#workExperience").append(HTMLworkStart);
 		$(".work-entry:last").append(formattedEmployer + formattedTitle);
 		$(".work-entry:last").append(formattedWorkDates);
@@ -160,7 +156,8 @@ projects.display = function(){
 	 if (projects.projects[project].images.length > 0) {
      for (image in projects.projects[project].images) {
        var formmattedProjectImage = HTMLprojectImage.replace("%data%", projects.projects[project].images[image]);
-       $(".project-entry:last").append(formmattedProjectImage);
+
+       $(".project-entry:last").append(formmattedProjectImage + "<hr>");
      }
    }
 	}
@@ -184,7 +181,7 @@ var education = {
 		"title" : "Front End Developer Nanodegree",
 		"name" : "Udacity", 
 		"dates" : "March 2016 - Present",
-		"url" : "https://www.udacity.com/course/front-end-web-developer-nanodegree--nd001"
+		"url" : "https://www.udacity.com/"
 	},
 	{
 		"title" : "Front End Career Path",
@@ -197,31 +194,28 @@ var education = {
 
 education.display = function(){
 	for (school in education.schools){
-		
 		var formattedEducationName = HTMLschoolName.replace("%data%", education.schools[school].name);
 		var formattedEducationLocation = HTMLschoolLocation.replace("%data%", education.schools[school].location);
 		var formattedEducationMajor = HTMLschoolDegree.replace("%data%", education.schools[school].major);
 		var formattedEducationDates = HTMLschoolDates.replace("%data%", education.schools[school].dates);
+
 		$("#education").append(HTMLschoolStart);
-
-		$(".education-entry:last").append(formattedEducationName + formattedEducationLocation + formattedEducationMajor + formattedEducationDates);
+		$(".education-entry:last").append(formattedEducationName + formattedEducationLocation + formattedEducationMajor + formattedEducationDates + "<br>");
 	}
-
-
-	
 		
-		for (online in education.online){
-			$("#education").append("<br>" + HTMLonlineClasses);
-			$("#education").append(HTMLschoolStart);
-			var formattedOnlineTitle = HTMLonlineTitle.replace("%data%", education.online[online].title);
-			var formattedOnlineName = HTMLonlineSchool.replace("%data%", education.online[online].name);
-			var formattedOnlineDates = HTMLonlineDates.replace("%data%", education.online[online].dates);
-			var formattedOnlineURL = HTMLonlineURL.replace("%data%", education.online[online].url);
+	$("#education").append("<br>" + HTMLonlineClasses);
 
-			$(".education-entry:last").append(formattedOnlineTitle + formattedOnlineName);
-			$(".education-entry:last").append(formattedOnlineDates);
-			$(".education-entry:last").append(formattedOnlineURL);
-		}
+	for (online in education.online){
+		var formattedOnlineTitle = HTMLonlineTitle.replace("%data%", education.online[online].title);
+		var formattedOnlineName = HTMLonlineSchool.replace("%data%", education.online[online].name);
+		var formattedOnlineDates = HTMLonlineDates.replace("%data%", education.online[online].dates);
+		var formattedOnlineURL = HTMLonlineURL.replace("%data%", education.online[online].url);
+
+		$("#education").append(HTMLschoolStart);
+		$(".education-entry:last").append(formattedOnlineTitle + formattedOnlineName);
+		$(".education-entry:last").append(formattedOnlineDates);
+		$(".education-entry:last").append(formattedOnlineURL + "<hr>");
+	}
 	
 }
 

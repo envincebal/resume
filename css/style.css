@@ -157,11 +157,14 @@ ul {
 }
 
 img {
-  padding: 10px;
+  margin: 10px;
   width: 350px;
+  
 }
 
-
+.project-img{
+  border: 1px dotted gray;
+}
 
 span {
   padding: 5px;
