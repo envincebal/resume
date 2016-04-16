@@ -9,7 +9,7 @@ var bio = {
 		"github" : "envincebal", 
 		"location" : "Clackamas, OR"
 	},
-	"picture" : "images/profile-pic.jpg",
+	"picture" : "images/profile-pic.JPG",
 	"welcome" : "Hello, welcome to my resume page!",
 	"skills" : ["HTML", "CSS", "Javascript", "jQuery", "Bootstrap", "SASS", "AJAX"]
 };
