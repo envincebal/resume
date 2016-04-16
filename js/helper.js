@@ -144,7 +144,7 @@ function initializeMap() {
     // as described in the Udacity FEND Style Guide: 
     // https://udacity.github.io/frontend-nanodegree-styleguide/javascript.html#for-in-loop
     work.forEach(function(job){
-      locations.push(work.location);
+      locations.push(job.location);
     });
 
     return locations;
